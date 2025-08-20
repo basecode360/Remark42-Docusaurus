@@ -1,0 +1,15 @@
+services:
+  remark42:
+    image: ghcr.io/umputun/remark42:latest
+    container_name: remark42
+    restart: unless-stopped
+    ports:
+      - '8080:8080'
+    environment:
+      - SITE=remark
+      - REMARK_URL=http://127.0.0.1:8080
+      - SECRET=dev_secret_change_me
+      - ALLOWED_HOSTS=*
+      - AUTH_ANON=true
+    volumes:
+      - ./remark42-data:/srv/var
