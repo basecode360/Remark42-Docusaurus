@@ -4,7 +4,7 @@ export default function configureCspForRemark42() {
     // Get Remark42 configuration from meta tags or use defaults
     const getHostFromMeta = () => {
       const meta = document.querySelector('meta[name="remark42-host"]');
-      return meta ? meta.content : 'https://b47445ba0d8a.ngrok-free.app';
+      return meta ? meta.content : process.env.REMARK42_HOST || 'https://b47445ba0d8a.ngrok-free.app';
     };
 
     const remark42Host = getHostFromMeta();
