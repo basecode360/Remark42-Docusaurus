@@ -1,4 +1,8 @@
 // @ts-check
+// Load environment variables
+import dotenv from 'dotenv';
+dotenv.config();
+
 // `@type` JSDoc annotations allow editor autocompletion and type checking
 // (when paired with `@ts-check`).
 // There are various equivalent ways to declare your Docusaurus config.
@@ -43,6 +47,13 @@ const config = {
 
   // Add client modules for Remark42 CSP configuration
   clientModules: ['./src/clientModules/remark42-csp.js'],
+
+  // Add custom fields for Remark42 configuration
+  customFields: {
+    REMARK42_HOST:
+      process.env.REMARK42_HOST || 'https://b47445ba0d8a.ngrok-free.app',
+    REMARK42_SITE_ID: process.env.REMARK42_SITE_ID || 'remark',
+  },
 
   presets: [
     [
