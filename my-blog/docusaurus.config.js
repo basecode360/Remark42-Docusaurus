@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -41,6 +41,9 @@ const config = {
     locales: ['en'],
   },
 
+  // Add client modules for Remark42 CSP configuration
+  clientModules: ['./src/clientModules/remark42-csp.js'],
+
   presets: [
     [
       'classic',
@@ -66,7 +69,7 @@ const config = {
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onUntruncatedBlogPosts: 'ignore', // Disable the truncation warning
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -93,7 +96,7 @@ const config = {
             position: 'left',
             label: 'Tutorial',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
